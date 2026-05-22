@@ -1,1 +1,86 @@
 /*  your css code here. If applicable */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background: #f4f4f4;
+}
+
+.container {
+	text-align: center;
+}
+
+.progress-container {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 30px;
+	width: 350px;
+}
+
+/* background line */
+.progress-container::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	height: 4px;
+	width: 100%;
+	background-color: #d3d3d3;
+	z-index: -1;
+}
+
+/* Active progress line */
+.progress {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	height: 4px;
+	width: 0%;
+	background-color: #3498db;
+	z-index: -1;
+	transition: width 0.3s ease;
+}
+
+.circle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: white;
+	border: 3px solid #d3d3d3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s;
+}
+
+.circle.active {
+	border-color: #3498db;
+	background-color: #3498db;
+	color: white;
+}
+
+button {
+	padding: 10px 20px;
+	margin: 5px;
+	border: none;
+	background-color: #3498db;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+button:disabled {
+	background-color: #999;
+	cursor: not-allowed;
+}
